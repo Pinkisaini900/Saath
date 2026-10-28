@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: saath
+    runtime: node
+    plan: free            # change to starter + uncomment disk below to keep data across deploys
+    buildCommand: npm run setup
+    startCommand: node server/index.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: APP_URL
+        value: https://saath.onrender.com
+      # - key: DB_FILE
+      #   value: /data/saath.db
+    # disk:
+    #   name: saath-data
+    #   mountPath: /data
+    #   sizeGB: 1

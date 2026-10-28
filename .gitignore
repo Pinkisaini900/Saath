@@ -1,0 +1,12 @@
+node_modules
+client/dist
+server/*.db
+server/*.db-wal
+server/*.db-shm
+
+# secrets: never commit these
+.env
+.env.*
+!.env.example
+server/.env
+client/.env.local
